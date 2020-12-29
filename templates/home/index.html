@@ -1,0 +1,58 @@
+{#{% extends 'home/base.html' %}#}
+{#{% block title %}{% endblock %}#}
+{#{% block content %}#}
+{#    <div class="sticky__">#}
+{#        <div id="filter">#}
+{#            {% csrf_token %}#}
+{#            <select id="gender">#}
+{#                <option value="">Giới Tính</option>#}
+{#                <option value="nam">Nam</option>#}
+{#                <option value="nu">Nữ</option>#}
+{#            </select>#}
+{#            <input type="number" id="tuoi_tu" min="18" max="60" placeholder="Tuổi từ">#}
+{#            <input type="number" id="tuoi_den" min="18" max="60" placeholder="Tuổi đến">#}
+{#            <input type="text" id="diachi" placeholder="Nhập  địa chỉ" required>#}
+{#            <input type="text" id="sothich" placeholder="Nhập Sở Thích" required>#}
+{#        </div>#}
+{#    </div>#}
+{#    <hr>#}
+{#    <div class="block_card" id="results"></div>#}
+{#    <script>#}
+{#        setInterval(function () {#}
+{#            $.ajax({#}
+{#                type: "POST",#}
+{#                url: "{% url 'home:timkiem'%}",#}
+{#                data: {#}
+{#                    'gender': $('#gender').val(),#}
+{#                    'tuoi_tu': $('#tuoi_tu').val(),#}
+{#                    'tuoi_den': $('#tuoi_den').val(),#}
+{#                    'diachi': $('#diachi').val(),#}
+{#                    'sothich': $('#sothich').val(),#}
+{#                    'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()#}
+{#                },#}
+{#                dataType: 'html',#}
+{#                success: function (data) {#}
+{#                    $('#results').html(data)#}
+{#                },#}
+{#            });#}
+{#        }, 1000);#}
+{#        setTimeout(function () {#}
+{#            $.ajax({#}
+{#                type: "POST",#}
+{#                url: "{% url 'home:timkiem'%}",#}
+{#                data: {#}
+{#                    'gender': $('#gender').val(),#}
+{#                    'tuoi_tu': $('#tuoi_tu').val(),#}
+{#                    'tuoi_den': $('#tuoi_den').val(),#}
+{#                    'diachi': $('#diachi').val(),#}
+{#                    'sothich': $('#sothich').val(),#}
+{#                    'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()#}
+{#                },#}
+{#                dataType: 'html',#}
+{#                success: function (data) {#}
+{#                    $('#results').html(data)#}
+{#                },#}
+{#            });#}
+{#        }, 0);#}
+{#    </script>#}
+{#{% endblock %}#}

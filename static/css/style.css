@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3efef;
+}
+
+li {
+    list-style: none;
+}
+
+/*.grid {*/
+/*    display: flex;*/
+/*    flex-flow: column wrap;*/
+/*    justify-content: space-between;*/
+/*    align-content: space-around;*/
+/*}*/
+
+/*.navbar {*/
+/*    display: flex;*/
+/*    flex-flow: row nowrap;*/
+/*    justify-content: space-between;*/
+/*    background-image: linear-gradient(to right, #f8f8f8 0%, #d4cdcd 100%);*/
+/*}*/
+
+/*#logo {*/
+/*    float: left;*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*}*/
+
+#flex_row {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.bar {
+    background-image: linear-gradient(110.3deg, rgba(72, 85, 99, 1) 8.8%, rgba(127, 146, 166, 1) 95.1%);
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.bar a {
+    color: #0a0505;
+    font-weight: bold;
+    width: 150px;
+    display: inline-block;
+    transition: all 0.5s ease-in-out;
+    margin: 10px;
+    padding: 10px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 15px;
+    border: 1px double #101010;
+    box-shadow: 0 0 2px #1FA2FF;
+}
+
+.bar a:hover {
+    width: 200px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #009ee7 100%);
+}
+
+.bar_login {
+    padding: 10px;
+    display: grid;
+    grid-template:1fr/1fr 10px 1fr;
+    text-align: center;
+    outline: 1px solid #0a0505;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 20px
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.bar_login a:hover {
+    color: #000000;
+}
+
+.bar_login a {
+    color: #030000;
+}
+
+.content_base {
+    width: 70%;
+    padding: 20px;
+    margin: 50px 20px;
+    border-radius: 10px;
+    border: 2px solid #0a0505;
+    box-shadow: 0 0 5px #61a8be;
+    background-image: radial-gradient(circle 1224px at 10.6% 8.8%, rgba(255, 255, 255, 1) 0%, rgba(153, 202, 251, 1) 100.2%);
+}
+
+.btn-grad {
+    width: 50%;
+    background-image: linear-gradient(to right, #6f8494 0%, #12D8FA 51%, #1FA2FF 100%);
+    margin: 0 auto;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    border: none;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/*.chat_bar {*/
+/*    margin-top: 50px;*/
+/*    display: block;*/
+/*    width: 100%;*/
+
+/*}*/
+
+/*.user_group {*/
+/*    background-color: #6f8494;*/
+/*    border-radius: 15px;*/
+/*    border: 1px solid #fafafa;*/
+/*    padding: 10px;*/
+/*    margin: 10px;*/
+/*    font-weight: bold;*/
+
+/*}*/
+
+/*.user_group .pf {*/
+/*    color: #f8f8f8;*/
+/*}*/
+
+/*.user_group .pf_a {*/
+/*    color: #f8f8f8;*/
+/*    font-size: 20px;*/
+/*}*/
+
+/*.user_group .pf:hover {*/
+/*    margin-left: 10px;*/
+/*    transition: all 1s;*/
+/*}*/
+
+.block_card {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.user_card {
+    margin: 30px;
+    box-shadow: 0 0 30px #90a9a6;
+    border-radius: 20px;
+    display: grid;
+    grid-template: 250px 50px 1fr/250px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 15px;
+    border: 1px solid #646363;
+}
+
+.card_name {
+    margin: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    font-style: italic;
+    text-transform: revert;
+}
+
+.card_name a {
+    color: #292626;
+}
+
+.card_body span {
+    display: block;
+    width: 100%;
+    margin: 5px 20px;
+    font-weight: bold;
+}
+
+.intro {
+    font-size: 18px;
+    font-style: italic;
+    margin: 10px 10px;
+}
+
+.ketnoi {
+    padding: 10px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.avatar_card_user {
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+    border: 5px double #ffffff;
+}
+
+
+#filter {
+    /*background-image: radial-gradient(circle 321px at 8.3% 75.7%, rgba(209, 247, 241, 1) 0%, rgba(249, 213, 213, 1) 81%);*/
+    display: flex;
+    justify-content: center;
+
+}
+
+#filter input, #filter select {
+    padding: 10px;
+    min-width: 200px;
+    margin: 10px;
+    border: 2px double #6f8494;
+    box-shadow: 0 0 10px #5b788c;
+    border-radius: 10px/5px;
+    font-weight: bold;
+    color: #370707;
+}
+
+.profile {
+    width: 1000px;
+    display: grid;
+    grid-template: 1fr/ 1fr 1fr;
+    margin-top: 50px;
+    box-shadow: 0 0 10px #433f3f;
+    padding: 50px;
+
+}
+
+.thongtin {
+    display: grid;
+    grid-template: 200px 100px 1fr/1fr;
+}
+
+.avatar_profile {
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 3px solid #0a0505;
+}
+
+.profile_name {
+    margin: 10px auto;
+
+}
+
+.profile_name a {
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+    font-style: italic;
+    text-transform: revert;
+}
+
+.profile_body span {
+    display: block;
+    width: 100%;
+    margin: 5px 20px;
+    font-weight: bold;
+}
+
+
+.boxchat {
+    border: 1px solid #968c8c;
+    padding: 20px;
+    height: 600px;
+    display: grid;
+    grid-template: 1fr 50px/1fr;
+    margin: 0;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 10px;
+
+}
+
+.chat_window_content {
+    overflow: auto;
+}
+
+.boxchat input {
+    padding-left: 10px;
+
+}
+
+
+.you {
+    width: 100%;
+    float: left;
+}
+
+.me {
+    width: 100%;
+    float: right;
+}
+
+.you_left {
+    float: left;
+    border-radius: 5px;
+    background: #62676e;
+    color: #ffffff;
+}
+
+.me_right {
+    float: right;
+    border-radius: 5px;
+    background: #425275;
+    color: #ffffff;
+}
+
+.content_chat {
+    margin: 10px 10px;
+    word-wrap: break-word;
+    padding: 10px;
+    max-width: 60%;
+    border: 1px solid #a0a0a0;
+}

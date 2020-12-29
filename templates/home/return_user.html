@@ -1,0 +1,29 @@
+{% load static %}
+{% for item in profile %}
+    <div class="user_card">
+        {% if item.avatar %}
+            <img class="avatar_card_user" src="{{ item.avatar.url }}"
+                 alt="avatar">
+        {% else %}
+            <img class="avatar_card_user" src="{% static 'images/avatar.jpeg' %}"
+                 alt="avatar">
+        {% endif %}
+        <div class="card_name">
+            <a href="{% url 'home:profile' item.username %}"> {{ item.first_name }} {{ item.last_name }}</a>
+            {% if item.gioiTinh ==  'nam' or item.gioiTinh ==  'Nam' %}
+                <i class="fas fa-mars" style="font-size: 25px;color:#015b81;"></i>
+            {% else %}
+                <i class="fas fa-venus" style="font-size: 25px;color:#c406bb;"></i>
+            {% endif %}
+        </div>
+        <div class="card_body">
+            <div>
+
+                <span><i class="fas fa-birthday-cake"></i>&emsp;{{ item.namSinh }}</span>
+                <span><i class="fas fa-map-marked-alt"></i>&emsp;{{ item.diaChi }}</span>
+            </div>
+            <div class="intro"><i class="fas fa-pen-alt"></i>&emsp;{{ item.intro }}</div>
+            <a class="btn-grad ketnoi" href="{% url 'home:profile' item.username %}">Kết nối</a>
+        </div>
+    </div>
+{% endfor %}

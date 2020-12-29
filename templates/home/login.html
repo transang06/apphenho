@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+{% block title %}Đăng Nhập{% endblock %}
+{% block content %}
+    <div class="content_base">
+        <div class="container">
+            <div class="bar_login">
+                <div><a href="{% url 'home:login' %}">Đăng Nhập</a></div>
+                <div>/</div>
+                <div><a href="{% url 'home:register' %}">Đăng Kí</a></div>
+            </div>
+            <div class="col-md-12">
+                <form action="{% url  'home:login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Email address</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                               placeholder="Nhập  tên đăng nhập của  bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Nhập mật khẩu">
+                    </div>
+                    <small class="form-text text-muted"> {{ message }}</small>
+                    <hr class="mb-4">
+                    <button type="submit" class="btn-grad">Đăng nhập</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

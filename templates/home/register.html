@@ -1,0 +1,83 @@
+{% extends 'home/base.html' %}
+{% block title %}Đăng Kí{% endblock %}
+{% block content %}
+     <div class="content_base">
+    <div class="container">
+
+        <div class="bar_login">
+            <div><a href="{% url 'home:login' %}">Đăng Nhập</a></div>
+            <div>/</div>
+            <div><a href="{% url 'home:register' %}">Đăng Kí</a></div>
+        </div>
+        <div class="col-md-12">
+            <form class="needs-validation" action="{% url  'home:register' %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">First name</label>
+                        <input type="text" class="form-control" id="firstName" name="first_name"
+                               placeholder="Nhập  họ và tên đệm  của  bạn" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Last name</label>
+                        <input type="text" class="form-control" id="lastName" name="last_name"
+                               placeholder="Nhập  tên  của  bạn" required=>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="username" name="username"
+                               placeholder="Nhập tên tài khoản" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Email </label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Nhập  địa chỉ email"
+                           required>
+                </div>
+                <div class="mb-3">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Nhập địa chỉ"
+                           required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="country">Giới Tính</label>
+                        <select class="custom-select d-block w-100" id="country" name="gender" required="">
+                            <option value="">Choose...</option>
+                            <option value="nam">Nam</option>
+                            <option value="nu">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="birthday">State</label>
+                        <input type="date" class="form-control" id="birthday" name="birthday" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="password">Mật Khẩu</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="password1">Nhập Lại Mật Khẩu</label>
+                        <input type="password" class="form-control" id="password1" name="password1"
+                               placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                </div>
+                {% if message %}
+                    <small class="form-text text-muted"> {{ message }}</small>
+                {% endif %}
+                <hr class="mb-4">
+                <button class="btn-grad" type="submit">Đăng Kí Tài Khoản Mới</button>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% for item in ketqua %}
+    {% if item.from_user_id != user.id %}
+        <div class="you">
+            <abbr title="{{ item.created_at }}">
+                <div class="content_chat you_left">
+                    {{ item.content }}
+                </div>
+            </abbr>
+        </div>
+    {% else %}
+        <div class="me">
+            <abbr title="{{ item.created_at }}">
+                <div class="content_chat me_right">
+                    {{ item.content }}
+                </div>
+            </abbr>
+        </div>
+    {% endif %}
+{% endfor %}

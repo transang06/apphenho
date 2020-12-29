@@ -1,0 +1,103 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div class="profile">
+        <div class="thongtin">
+            {% for item in profile %}
+                {% if item.avatar %}
+                    <img class="avatar_profile" src="{{ item.avatar.url }}"
+                         alt="avatar">
+                {% else %}
+                    <img class="avatar_profile" src="{% static 'images/avatar.jpeg' %}"
+                         alt="avatar">
+                {% endif %}
+                <div class="profile_name">
+                    <a href="{% url 'home:profile' item.username %}"> {{ item.first_name }} {{ item.last_name }}</a>
+                    {% if item.gioiTinh ==  'nam' or item.gioiTinh ==  'Nam' %}
+                        <i class="fas fa-mars" style="font-size: 25px;color:#015b81;"></i>
+                    {% else %}
+                        <i class="fas fa-venus" style="font-size: 25px;color:#c406bb;"></i>
+                    {% endif %}
+                </div>
+                <div class="profile_body">
+                    <div>
+
+                        <span><i class="fas fa-birthday-cake"></i>&emsp;{{ item.namSinh }}</span>
+                        <span><i class="fas fa-map-marked-alt"></i>&emsp;{{ item.diaChi }}</span>
+                    </div>
+                    <div class="intro"><i class="fas fa-pen-alt"></i>&emsp;{{ item.intro }}</div>
+                </div>
+            {% endfor %}
+
+            {% if user.username == profile.0.username %}
+                <form action="{% url 'home:update' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="avatar">Ảnh đại diện</label>
+                    <input type="file" id="avatar"  accept='image/*' name="avatar">
+                    <input type="text" id="intro" value="{{ profile.0.intro }}" name="intro"  >
+                    <input type="submit" value="submit">
+                </form>
+            {% endif %}
+
+        </div>
+        <div class="boxchat">
+            <div id="results-message" class="chat_window_content">
+            </div>
+            {% csrf_token %}
+            {% if user.username == profile.0.username %}
+                <input type="text" id="content_chat" class="chat_input"
+                       placeholder="Gửi tín nhắn cho chính bạn" required>
+            {% else %}
+                <input type="text" id="content_chat" class="chat_input"
+                       placeholder="Nhập tin nhắn muốn gửi..." required>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        $('#content_chat').click(function () {
+            $('#results-message').scrollTop($('#results-message')[0].scrollHeight);
+        });
+
+        $('#content_chat').keypress(function (e) {
+            if (e.which === 13) {
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'home:api' profile.0.id %}",
+                    data: {
+                        'content': $('#content_chat').val(),
+                        'csrfmiddlewaretoken': $("input[name=csrfmiddlewaretoken]").val()
+                    },
+                    dataType: 'html',
+                    success: function (data) {
+                        $('#content_chat').val('');
+                        $('#results-message').html(data)
+                    },
+                });
+            }
+        });
+
+        setInterval(function () {
+            $.ajax({
+                type: "GET",
+                url: "{% url 'home:api' profile.0.id %}",
+                dataType: 'html',
+                success: function (data) {
+                    $('#results-message').html(data);
+
+                },
+            });
+        }, 1000);
+        setTimeout(function () {
+            $.ajax({
+                type: "GET",
+                url: "{% url 'home:api' profile.0.id %}",
+                dataType: 'html',
+                success: function (data) {
+                    $('#results-message').html(data);
+                    $('#results-message').scrollTop($('#results-message{{ item.id }}')[0].scrollHeight);
+                },
+            });
+        }, 0);
+    </script>
+{% endblock %}
